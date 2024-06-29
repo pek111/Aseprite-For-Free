@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Space%20Grotesk:700|Space%20Grotesk:400');
+
+:root {
+    /*  change this for scaling  */
+    --m: 4vw;
+
+    --red: #FF6565;
+    --pink: #FF64F9;
+    --purple: #6B5FFF;
+    --blue: #4D8AFF;
+    --green: #5BFF89;
+    --yellow: #FFEE55;
+    --orange: #FF6D1B;
+
+}
+
+* {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #F3F3F3;
+    overflow: hidden;
+}
+
+body {
+    background-color: #181a1b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--m);
+    border-radius: calc(0.5 * var(--m));
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: calc(0.1 * var(--m)) solid rgba(0, 0, 0, 0.5);
+    width: 80%;
+    height: 66%;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+h1 {
+    font-size: calc(1.2 * var(--m));
+    margin-bottom: calc(-0.2 * var(--m));
+    margin-top: calc(-2 * var(--m));
+}
+
+p {
+    font-size: calc(0.6 * var(--m));
+    margin-bottom: calc(1 * var(--m));
+}
+
+.bottom-text {
+    font-size: calc(0.4 * var(--m));
+    position: absolute;
+    bottom: calc(-0.6 * var(--m));
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.download-btn {
+    border: calc(0.08 * var(--m)) solid transparent;
+    position: relative;
+    font-size: calc(0.75 * var(--m));
+    border-radius: calc(0.6 * var(--m));
+    padding: calc(0.5 * var(--m)) calc(1 * var(--m));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Add this line to center the text vertically */
+    cursor: pointer;
+    width: 66%;
+    height: 30%;
+
+    background: linear-gradient(#121213, #121213), linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)), linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+    background-origin: border-box;
+    background-clip: padding-box, border-box, border-box;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+    transition: all 0.04s ease-out;
+}
+
+.download-btn::before {
+    content: '';
+    background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+    height: 15%;
+    width: 60%;
+    position: absolute;
+    bottom: -20%;
+    z-index: -5;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+    filter: blur(calc(0.8 * var(--m)));
+}
+
+.download-btn:hover,
+.download-btn:hover::before {
+    animation: animate 0.6s infinite linear;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0
+    }
+
+    100% {
+        background-position: 200%
+    }
+}
+
+@media screen and (max-width: 0px) {
+    :root {
+        --m: 2vw;
+    }
+}
+
+.download-btn:active {
+    scale: 0.96;
+    transition: all 0.04s ease-in;
+    animation: animate 0.15s infinite linear;
+}
+
+.download-btn:active::before {
+    z-index: -5;
+}
