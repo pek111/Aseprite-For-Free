@@ -39,8 +39,8 @@ body {
     padding: var(--m);
     border-radius: calc(0.5 * var(--m));
     background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 0 calc(0.6 * var(--m)) rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(calc(0.6 * var(--m)));
     border: calc(0.1 * var(--m)) solid rgba(0, 0, 0, 0.5);
     width: 80%;
     height: 66%;
@@ -68,7 +68,7 @@ p {
     white-space: nowrap;
 }
 
-.download-btn {
+.main-download-btn {
     border: calc(0.08 * var(--m)) solid transparent;
     position: relative;
     font-size: calc(0.75 * var(--m));
@@ -77,7 +77,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Add this line to center the text vertically */
     cursor: pointer;
     width: 66%;
     height: 30%;
@@ -88,9 +87,10 @@ p {
     background-size: 200%;
     animation: animate 2s infinite linear;
     transition: all 0.04s ease-out;
+    margin-bottom: calc(0.25 * var(--m));
 }
 
-.download-btn::before {
+.main-download-btn::before {
     content: '';
     background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
     height: 15%;
@@ -103,8 +103,47 @@ p {
     filter: blur(calc(0.8 * var(--m)));
 }
 
-.download-btn:hover,
-.download-btn:hover::before {
+.main-download-btn:hover,
+.main-download-btn:hover::before {
+    animation: animate 0.6s infinite linear;
+}
+
+.github-btn {
+    border: calc(0.06 * var(--m)) solid transparent;
+    position: relative;
+    font-size: calc(0.375 * var(--m));
+    border-radius: calc(0.3 * var(--m));
+    padding: calc(0.5 * var(--m)) calc(1 * var(--m));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 33%;
+    height: 15%;
+
+    background: linear-gradient(#121213, #121213), linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)), linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+    background-origin: border-box;
+    background-clip: padding-box, border-box, border-box;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+    transition: all 0.04s ease-out;
+}
+
+.github-btn::before {
+    content: '';
+    background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+    height: 15%;
+    width: 60%;
+    position: absolute;
+    bottom: -20%;
+    z-index: -5;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+    filter: blur(calc(0.8 * var(--m)));
+}
+
+.github-btn:hover,
+.github-btn:hover::before {
     animation: animate 0.6s infinite linear;
 }
 
@@ -124,12 +163,22 @@ p {
     }
 }
 
-.download-btn:active {
+.main-download-btn:active {
     scale: 0.96;
     transition: all 0.04s ease-in;
     animation: animate 0.15s infinite linear;
 }
 
-.download-btn:active::before {
+.main-download-btn:active::before {
+    z-index: -5;
+}
+
+.github-btn:active {
+    scale: 0.96;
+    transition: all 0.04s ease-in;
+    animation: animate 0.15s infinite linear;
+}
+
+.github-btn:active::before {
     z-index: -5;
 }
